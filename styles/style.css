@@ -114,7 +114,14 @@ p {
 }
 
 .parallax-2 {
-  background-image: url("/assets/images/card-02.jpeg");
+  background-image: url("../assets/images/card-02.jpeg");
+}
+
+/* Mobile parallax tuning: avoid "zoomed" background crops */
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+  }
 }
 
 footer {

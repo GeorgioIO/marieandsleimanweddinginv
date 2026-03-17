@@ -1,4 +1,4 @@
-// smooth scroll for the "Scroll Down" button
+// smooth scroll for in-page anchors
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   anchor.addEventListener("click", function (e) {
     var targetId = this.getAttribute("href");
@@ -43,7 +43,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
   });
 })();
 
-// background music (autoplay if allowed, toggle pause/resume)
+// background music (single source of truth)
 (function () {
   var audio = document.getElementById("bg-music");
   var toggle = document.getElementById("music-toggle");
@@ -54,30 +54,76 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     toggle.classList.toggle("is-playing", !!isPlaying);
   }
 
-  async function tryPlay() {
-    try {
-      await audio.play();
-      setUi(true);
-      return true;
-    } catch (e) {
-      setUi(false);
-      return false;
-    }
+  audio.volume = 0.8;
+  audio.load();
+
+  function play() {
+    return audio.play().then(
+      function () {
+        setUi(true);
+        return true;
+      },
+      function () {
+        setUi(false);
+        return false;
+      },
+    );
   }
 
-  // Attempt to autoplay on load (may be blocked by browser policy)
+  // Attempt to play immediately on load. If blocked, start muted and
+  // automatically unmute on first user interaction.
+  var pendingUnmute = false;
+
   window.addEventListener("load", function () {
-    tryPlay();
+    audio.muted = false;
+    play().then(function (ok) {
+      if (ok) return;
+      audio.muted = true;
+      play().then(function (mutedOk) {
+        if (mutedOk) pendingUnmute = true;
+      });
+    });
   });
 
-  toggle.addEventListener("click", function (e) {
-    e.preventDefault();
+  function unlockAudio() {
+    if (!pendingUnmute) return;
+    pendingUnmute = false;
+    audio.muted = false;
+    play();
+  }
+
+  // Some browsers need an explicit user gesture before any audio can start.
+  function gestureStart() {
+    if (!audio.paused) return;
+    audio.muted = false;
+    play();
+  }
+
+  document.addEventListener(
+    "pointerdown",
+    function () {
+      unlockAudio();
+      gestureStart();
+    },
+    { once: true },
+  );
+  document.addEventListener(
+    "keydown",
+    function () {
+      unlockAudio();
+      gestureStart();
+    },
+    { once: true },
+  );
+
+  toggle.addEventListener("click", function () {
     if (audio.paused) {
-      tryPlay();
-    } else {
-      audio.pause();
-      setUi(false);
+      audio.muted = false;
+      play();
+      return;
     }
+    audio.pause();
+    setUi(false);
   });
 
   audio.addEventListener("play", function () {
