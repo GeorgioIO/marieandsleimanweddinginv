@@ -131,6 +131,10 @@ footer {
   color: #777;
 }
 
+#developer {
+  font-size: 10px;
+}
+
 /* Music toggle */
 .music-tone {
   position: fixed;
@@ -236,6 +240,10 @@ footer {
   align-items: center;
   align-self: center;
   margin: 0;
+}
+
+.names-amps {
+  font-family: var(--font-body);
 }
 
 #wedding-invitation-text {
