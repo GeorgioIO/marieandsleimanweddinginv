@@ -483,6 +483,11 @@ footer {
   gap: 8px;
 }
 
+#reservation-form .input > input,
+#reservation-form .input > select {
+  height: 40px;
+}
+
 #reservation-form label {
   font-family: var(--font-body);
   text-transform: uppercase;
