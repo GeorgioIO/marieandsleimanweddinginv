@@ -74,8 +74,7 @@ p {
   justify-content: center;
   text-align: center;
 
-  background-image: url("../assets/images/entry-image.webp");
-  background-attachment: fixed;
+  background-image: url("/assets/images/entry-image-second.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
