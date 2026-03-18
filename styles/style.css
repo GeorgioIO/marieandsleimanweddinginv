@@ -45,9 +45,6 @@ body {
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-
-
-
 body {
   font-family: var(--font-body);
   color: #222;
@@ -103,7 +100,6 @@ p {
   padding: 20px 5px;
   max-width: 700px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-
 }
 
 .entry-slide h1,
@@ -126,7 +122,6 @@ footer {
 #developer {
   font-size: 10px;
 }
-
 
 .wedding-date-container {
   display: flex;
@@ -377,17 +372,16 @@ footer {
   text-align: center;
 }
 
-
 /* ======== Reservation (RSVP) ======== */
 
 .reservation {
-  width: min(900px, 100%);
-  margin: clamp(26px, 5vw, 60px) auto 0;
-  padding: clamp(22px, 3.5vw, 34px);
   background: var(--paper);
   color: var(--ink);
   border: var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  min-width: 0;
+  box-sizing: border-box;
   box-shadow: var(--shadow);
 }
 
@@ -591,8 +585,6 @@ footer {
   outline-offset: 3px;
 }
 
-
-
 /* ======== Background Music Button ======== */
 #music-toggle {
   position: fixed;
@@ -606,7 +598,9 @@ footer {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,7 +613,9 @@ footer {
 #music-toggle:hover {
   transform: translateY(-2px) scale(1.05);
   background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.8);
   color: #111;
 }
 
@@ -631,7 +627,9 @@ footer {
   width: 26px;
   height: 26px;
   position: absolute;
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Paused state (Muted Icon) */
@@ -658,9 +656,15 @@ footer {
 
 /* Gentle pulse animation when playing */
 @keyframes musicPulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 
 #music-toggle.is-playing {
@@ -672,9 +676,10 @@ footer {
 .animate-section .stagger-child {
   opacity: 0;
   will-change: transform, opacity, filter;
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .animate-section {
@@ -694,24 +699,45 @@ footer {
 }
 
 /* 1. fade-scale */
-.animate-section.fade-scale { transform: scale(0.96); }
-.animate-section.fade-scale .stagger-child { transform: scale(0.98); }
+.animate-section.fade-scale {
+  transform: scale(0.96);
+}
+.animate-section.fade-scale .stagger-child {
+  transform: scale(0.98);
+}
 
 /* 2. slide-up */
-.animate-section.slide-up { transform: translateY(40px); }
-.animate-section.slide-up .stagger-child { transform: translateY(20px); }
+.animate-section.slide-up {
+  transform: translateY(40px);
+}
+.animate-section.slide-up .stagger-child {
+  transform: translateY(20px);
+}
 
 /* 3. slide-left */
-.animate-section.slide-left { transform: translateX(-50px); }
-.animate-section.slide-left .stagger-child { transform: translateX(-20px); }
+.animate-section.slide-left {
+  transform: translateX(-50px);
+}
+.animate-section.slide-left .stagger-child {
+  transform: translateX(-20px);
+}
 
 /* 4. slide-right */
-.animate-section.slide-right { transform: translateX(50px); }
-.animate-section.slide-right .stagger-child { transform: translateX(20px); }
+.animate-section.slide-right {
+  transform: translateX(50px);
+}
+.animate-section.slide-right .stagger-child {
+  transform: translateX(20px);
+}
 
 /* 5. blur-scale */
-.animate-section.blur-scale { transform: scale(0.96); filter: blur(6px); }
-.animate-section.blur-scale .stagger-child { filter: blur(3px); }
+.animate-section.blur-scale {
+  transform: scale(0.96);
+  filter: blur(6px);
+}
+.animate-section.blur-scale .stagger-child {
+  filter: blur(3px);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .animate-section,
@@ -739,7 +765,9 @@ body.loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
 }
 
 #loading-screen.hidden {
@@ -765,8 +793,13 @@ body.loading {
 }
 
 @keyframes loaderPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.12); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
 }
 
 .olive-branches {
@@ -789,17 +822,21 @@ body.loading {
 }
 
 @keyframes drawOliveBranch {
-  to { stroke-dashoffset: 0; }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loader-heart { animation: none !important; }
-  .branch-path, .leaf-path {
+  .loader-heart {
+    animation: none !important;
+  }
+  .branch-path,
+  .leaf-path {
     animation: none !important;
     stroke-dashoffset: 0 !important;
   }
 }
-
 
 /* ======== Card Redesign ======== */
 .card-bg-root {
@@ -814,8 +851,14 @@ body.loading {
   color: var(--ink);
 }
 
-.root-path { stroke-dasharray: 400; stroke-dashoffset: 400; }
-.root-leaf { stroke-dasharray: 100; stroke-dashoffset: 100; }
+.root-path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+}
+.root-leaf {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
 
 .animate-section.is-visible .root-path {
   animation: drawCardRoot 2s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.5s;
@@ -824,13 +867,17 @@ body.loading {
   animation: drawCardRoot 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards 1s;
 }
 
-@keyframes drawCardRoot { to { stroke-dashoffset: 0; } }
+@keyframes drawCardRoot {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
 .ceremony-subtitle {
   font-family: var(--font-title);
   font-style: italic;
   font-size: 1.1rem;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0, 0, 0, 0.6);
   text-align: center;
   margin-bottom: -15px;
   letter-spacing: 0.05em;
@@ -849,8 +896,15 @@ body.loading {
   color: var(--ink);
   opacity: 0.8;
 }
-.card-divider svg { width: 140px; height: 10px; }
+.card-divider svg {
+  width: 140px;
+  height: 10px;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .root-path, .root-leaf { animation: none !important; stroke-dashoffset: 0 !important; }
+  .root-path,
+  .root-leaf {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
 }
