@@ -225,6 +225,7 @@ footer {
   width: 100%;
   height: auto;
 }
+
 .wedding-cart > img {
   width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -255,6 +256,13 @@ footer {
   min-width: 0;
   box-shadow: var(--shadow);
 }
+
+.wedding-info > img {
+  width: 100%;
+  height: auto;
+}
+
+
 
 .wedding-info .title {
   font-family: var(--font-title);

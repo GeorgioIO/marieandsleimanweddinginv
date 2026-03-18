@@ -152,122 +152,131 @@
           </svg>
           <div id="whish-account" class="stagger-child" style="--stagger: 3">Whish Account: 20215289-03</div>
         </div>
-      </div>
-      <div class="reservation animate-section blur-scale">
-        <svg class="card-bg-root" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path class="root-path" stroke-width="1.5" d="M100 300 Q100 270 100 250" />
-          <path class="root-path" stroke-width="1.5" d="M100 250 Q80 220 50 180 T20 80 T0 20" />
-          <path class="root-path" stroke-width="1.5" d="M100 250 Q120 220 150 180 T180 80 T200 20" />
-          <path class="root-leaf" stroke-width="1.0" d="M70 210 Q40 190 30 150 M130 210 Q160 190 170 150 M40 130 Q20 100 10 70 M160 130 Q180 100 190 70" />
-          <path class="root-leaf" stroke-width="0.5" d="M50 175 Q30 150 25 120 M150 175 Q170 150 175 120 M25 90 Q10 70 5 40 M175 90 Q190 70 195 40 M80 235 Q60 250 40 240 M120 235 Q140 250 160 240" />
-        </svg>
-        <h2 class="slide-title stagger-child" style="--stagger: 1">Be Our Guest</h2>
-        <p class="reservation-deadline stagger-child" style="--stagger: 2">Please reply before June 01, 2026</p>
-        <form
-          class="stagger-child" style="--stagger: 3"
-          method="POST"
-          action=""
-          id="reservation-form"
-          autocomplete="off"
-        >
-          <!-- HONEYPOT 
-          <input type="text" name="_honey" style="display: none" /> -->
 
-          <!-- Disable captcha -->
-          <!-- <input type="hidden" name="_captcha" value="false" /> -->
-
-          <!-- Redirect -->
-          <!-- <input
-            type="hidden"
-            name="_next"
-            value="https://ritaandchahidwedd.vercel.app/reservationsuccess.html"
-          /> -->
-
-          <div class="input" id="attending">
-            <label>Are you attending?</label>
-            <div class="attending-selection-container">
-              <div class="attending-radio-container">
-                <input
-                  type="radio"
-                  name="attending"
-                  id="attending-yes"
-                  value="yes"
-                  hidden
-                />
-                <label for="attending-yes" class="heart-label">
-                  <div class="heart"></div>
-                  <p>Yes Attending</p>
-                </label>
-              </div>
-              <div class="attending-radio-container">
-                <input
-                  type="radio"
-                  name="attending"
-                  id="attending-no"
-                  value="no"
-                  hidden
-                />
-                <label for="attending-no" class="heart-label">
-                  <div class="heart"></div>
-                  <p>Not Attending</p>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="input" id="guest-name">
-            <label for="guestName"
-              >Your name<span class="asterisk">*</span></label
-            >
-            <input
-              type="text"
-              name="Guest&nbsp;name"
-              id="guestName"
-              required
-              placeholder="Enter your full name"
+        <div class="wedding-info animate-section fade-scale">
+            <img
+              src="/assets/images/cardTimeline.png"
+              alt="Card timeline"
+              class="stagger-child" style="--stagger: 1"
             />
-          </div>
-
-          <div class="input" id="persons">
-            <label for="persons-select"
-              >Number of persons <span class="asterisk">*</span></label
-            >
-            <select
-              id="persons-select"
-              name="Number&nbsp;of&nbsp;persons"
-              placeholder="Select number of persons"
-            >
-              <option value="None">None</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-          <div class="input" id="phone-number">
-            <label for="phoneNumber"
-              >Phone number <span class="asterisk">*</span></label
-            >
-            <input
-              type="text"
-              name="Phone&nbsp;number"
-              id="phoneNumber"
-              required
-              placeholder="Enter your phone number"
-            />
-          </div>
-          <div class="input">
-            <textarea
-              id="loveWishes"
-              placeholder="Share your love & wishes"
-            ></textarea>
-          </div>
-          <button type="submit" id="rsvp-btn">RSVP</button>
-          </form>
         </div>
 
+        <div class="reservation animate-section blur-scale">
+          <svg class="card-bg-root" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path class="root-path" stroke-width="1.5" d="M100 300 Q100 270 100 250" />
+            <path class="root-path" stroke-width="1.5" d="M100 250 Q80 220 50 180 T20 80 T0 20" />
+            <path class="root-path" stroke-width="1.5" d="M100 250 Q120 220 150 180 T180 80 T200 20" />
+            <path class="root-leaf" stroke-width="1.0" d="M70 210 Q40 190 30 150 M130 210 Q160 190 170 150 M40 130 Q20 100 10 70 M160 130 Q180 100 190 70" />
+            <path class="root-leaf" stroke-width="0.5" d="M50 175 Q30 150 25 120 M150 175 Q170 150 175 120 M25 90 Q10 70 5 40 M175 90 Q190 70 195 40 M80 235 Q60 250 40 240 M120 235 Q140 250 160 240" />
+          </svg>
+          <h2 class="slide-title stagger-child" style="--stagger: 1">Be Our Guest</h2>
+          <p class="reservation-deadline stagger-child" style="--stagger: 2">Please reply before June 01, 2026</p>
+          <form
+            class="stagger-child" style="--stagger: 3"
+            method="POST"
+            action=""
+            id="reservation-form"
+            autocomplete="off"
+          >
+            <!-- HONEYPOT 
+            <input type="text" name="_honey" style="display: none" /> -->
 
-    
+            <!-- Disable captcha -->
+            <!-- <input type="hidden" name="_captcha" value="false" /> -->
+
+            <!-- Redirect -->
+            <!-- <input
+              type="hidden"
+              name="_next"
+              value="https://ritaandchahidwedd.vercel.app/reservationsuccess.html"
+            /> -->
+
+            <div class="input" id="attending">
+              <label>Are you attending?</label>
+              <div class="attending-selection-container">
+                <div class="attending-radio-container">
+                  <input
+                    type="radio"
+                    name="attending"
+                    id="attending-yes"
+                    value="yes"
+                    hidden
+                  />
+                  <label for="attending-yes" class="heart-label">
+                    <div class="heart"></div>
+                    <p>Yes Attending</p>
+                  </label>
+                </div>
+                <div class="attending-radio-container">
+                  <input
+                    type="radio"
+                    name="attending"
+                    id="attending-no"
+                    value="no"
+                    hidden
+                  />
+                  <label for="attending-no" class="heart-label">
+                    <div class="heart"></div>
+                    <p>Not Attending</p>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="input" id="guest-name">
+              <label for="guestName"
+                >Your name<span class="asterisk">*</span></label
+              >
+              <input
+                type="text"
+                name="Guest&nbsp;name"
+                id="guestName"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div class="input" id="persons">
+              <label for="persons-select"
+                >Number of persons <span class="asterisk">*</span></label
+              >
+              <select
+                id="persons-select"
+                name="Number&nbsp;of&nbsp;persons"
+                placeholder="Select number of persons"
+              >
+                <option value="None">None</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="input" id="phone-number">
+              <label for="phoneNumber"
+                >Phone number <span class="asterisk">*</span></label
+              >
+              <input
+                type="text"
+                name="Phone&nbsp;number"
+                id="phoneNumber"
+                required
+                placeholder="Enter your phone number"
+              />
+            </div>
+            <div class="input">
+              <textarea
+                id="loveWishes"
+                placeholder="Share your love & wishes"
+              ></textarea>
+            </div>
+            <button type="submit" id="rsvp-btn">RSVP</button>
+            </form>
+        </div>
+      </div>  
+
+
+
 
     <button type="button" id="music-toggle" aria-label="Toggle music">
       <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
