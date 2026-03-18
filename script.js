@@ -1,18 +1,3 @@
-// smooth scroll for in-page anchors
-document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-  anchor.addEventListener("click", function (e) {
-    var targetId = this.getAttribute("href");
-    var target = document.querySelector(targetId);
-    if (!target) return;
-
-    e.preventDefault();
-    window.scrollTo({
-      top: target.offsetTop,
-      behavior: "smooth",
-    });
-  });
-});
-
 // reveal wedding info blocks on scroll
 (function () {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
