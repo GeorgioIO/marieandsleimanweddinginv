@@ -4,27 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marie Therese Dahdah and Sleiman Makary Wedding</title>
-    <link rel="stylesheet" href="styles/style.css " />
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styles/style.min.css" />
+    <script defer src="script.min.js"></script>
   </head>
-  <body>
-    <section class="entry-slide">
-      <div class="content">
-        <div class="wedding-date-container">
+  <body class="loading">
+    <div id="loading-screen">
+      <div class="loader-content">
+        <!-- Olive Branches -->
+        <svg class="olive-branches" viewBox="0 0 200 100" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path class="branch-path" d="M100 50 C80 50 60 70 40 40 C30 25 20 40 10 30" />
+          <path class="leaf-path" d="M40 40 C45 30 55 35 60 45 M60 70 C50 60 40 65 35 75 M80 50 C75 40 65 45 60 55 M10 30 C5 20 15 15 25 25" />
+          <path class="branch-path" d="M100 50 C120 50 140 70 160 40 C170 25 180 40 190 30" />
+          <path class="leaf-path" d="M160 40 C155 30 145 35 140 45 M140 70 C150 60 160 65 165 75 M120 50 C125 40 135 45 140 55 M190 30 C195 20 185 15 175 25" />
+        </svg>
+        <!-- Heart Background -->
+        <svg class="loader-heart" viewBox="0 0 24 24" fill="#000">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+    </div>
+
+    <section class="entry-slide animate-section fade-scale">
+      <div class="content stagger-child" style="--stagger: 0">
+        <div class="wedding-date-container stagger-child" style="--stagger: 1">
           <p class="line"></p>
           <p id="wedding-date">20.06.2026</p>
           <p class="line"></p>
         </div>
-        <div class="names-container">
+        <div class="names-container stagger-child" style="--stagger: 2">
           <h1>Marie Therese</h1>
           <p class="names-amps">&</p>
           <h1>Sleiman</h1>
         </div>
-        <p id="wedding-invitation-text">Wedding Invitation</p>
-        <p class="separator"></p>
-        <div class="quote-container">
+        <p id="wedding-invitation-text" class="stagger-child" style="--stagger: 3">Wedding Invitation</p>
+        <p class="separator stagger-child" style="--stagger: 4"></p>
+        <div class="quote-container stagger-child" style="--stagger: 5">
           <p class="quote">
-            What God Has Joined Together, <br> No Man Can Separate.
+            <span style="display: inline-block; white-space: nowrap;">What God Has Joined Together,</span> <br>
+            <span style="display: inline-block; white-space: nowrap;">No Man Can Separate.</span>
           </p>
           <p class="attributioner">Matthew 19:6</p>
         </div>
@@ -32,82 +49,79 @@
     </section>
 
     <div class="content">
-      <div class="wedding-cart">
+      <div class="wedding-cart animate-section fade-scale">
         <img
           src="/assets/images/card101.webp"
           alt="Marie therese dahdah and sleiman makary wedding"
+          class="stagger-child" style="--stagger: 1"
         />
       </div>
       <div class="wedding-information-container">
-        <div class="wedding-info reveal" id="ceremony">
-          <div class="title">Ceremony</div>
+                <div class="wedding-info animate-section slide-up" id="ceremony">
+          <svg class="card-bg-root" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path class="root-path" stroke-width="1.5" d="M100 300 Q110 260 90 200 T110 100 T80 0" />
+            <path class="root-leaf" stroke-width="1.0" d="M96 230 Q120 215 130 190 M102 140 Q75 125 70 100" />
+            <path class="root-leaf" stroke-width="0.5" d="M115 210 Q140 200 145 180 M85 115 Q60 100 65 80 M95 50 Q115 30 120 10 M85 30 Q60 20 65 5" />
+          </svg>
+          <p class="ceremony-subtitle stagger-child" style="--stagger: 1">Join us for the</p>
+          <div class="title stagger-child" style="--stagger: 2">Ceremony</div>
           <div class="info-items">
-            <div class="info-item location">
+            <div class="info-item location stagger-child" style="--stagger: 3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 32 32">
-                <path
-                  fill="#000"
-                  fill-rule="evenodd"
-                  d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0-8a5 5 0 1 0 0 10 5 5 0 0 0 0-10m0 22c-1.663.009-10-12.819-10-17C2 6.478 6.477 2 12 2s10 4.478 10 10c0 4.125-8.363 17.009-10 17m0-29C5.373 0 0 5.373 0 12c0 5.018 10.005 20.011 12 20 1.964.011 12-15.05 12-20 0-6.627-5.373-12-12-12"
-                />
+                <path fill="#000" fill-rule="evenodd" d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0-8a5 5 0 1 0 0 10 5 5 0 0 0 0-10m0 22c-1.663.009-10-12.819-10-17C2 6.478 6.477 2 12 2s10 4.478 10 10c0 4.125-8.363 17.009-10 17m0-29C5.373 0 0 5.373 0 12c0 5.018 10.005 20.011 12 20 1.964.011 12-15.05 12-20 0-6.627-5.373-12-12-12" />
               </svg>
               <p class="location-name">Saint Gerges - Ehden Lebanon</p>
-              <a
-                class="locate-on-map-button"
-                href="https://maps.app.goo.gl/swW7maigLxYR3QoQ7?g_st=ipc"
-                >Locate on Map</a
-              >
+              <a class="locate-on-map-button" href="https://maps.app.goo.gl/swW7maigLxYR3QoQ7?g_st=ipc">Locate on Map</a>
             </div>
 
-            <div class="info-item time">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="#000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 6v6M16.24 16.24 12 12"
-                />
+            <div class="card-divider stagger-child" style="--stagger: 4">
+              <svg viewBox="0 0 100 10" preserveAspectRatio="none">
+                <line x1="0" y1="5" x2="45" y2="5" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+                <rect x="47" y="2" width="6" height="6" transform="rotate(45 50 5)" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <line x1="55" y1="5" x2="100" y2="5" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+              </svg>
+            </div>
+
+            <div class="info-item time stagger-child" style="--stagger: 5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="12" x2="12" y2="4" />
+                <line x1="12" y1="12" x2="12" y2="18" />
               </svg>
               <p class="time-text">6:00 PM</p>
             </div>
           </div>
         </div>
-        <div class="wedding-info reveal" id="party">
-          <div class="title">Party</div>
+                <div class="wedding-info animate-section slide-left" id="party">
+          <svg class="card-bg-root" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path class="root-path" stroke-width="1.5" d="M100 300 Q90 260 110 200 T90 100 T120 0" />
+            <path class="root-leaf" stroke-width="1.0" d="M104 230 Q80 215 70 190 M98 140 Q125 125 130 100" />
+            <path class="root-leaf" stroke-width="0.5" d="M85 210 Q60 200 55 180 M115 115 Q140 100 135 80 M105 50 Q85 30 80 10 M115 30 Q140 20 135 5" />
+          </svg>
+          <p class="ceremony-subtitle stagger-child" style="--stagger: 1">Celebrate at the</p>
+          <div class="title stagger-child" style="--stagger: 2">Party</div>
           <div class="info-items">
-            <div class="info-item location">
+            <div class="info-item location stagger-child" style="--stagger: 3">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 0 32 32">
-                <path
-                  fill="#000"
-                  fill-rule="evenodd"
-                  d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0-8a5 5 0 1 0 0 10 5 5 0 0 0 0-10m0 22c-1.663.009-10-12.819-10-17C2 6.478 6.477 2 12 2s10 4.478 10 10c0 4.125-8.363 17.009-10 17m0-29C5.373 0 0 5.373 0 12c0 5.018 10.005 20.011 12 20 1.964.011 12-15.05 12-20 0-6.627-5.373-12-12-12"
-                />
+                <path fill="#000" fill-rule="evenodd" d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0-8a5 5 0 1 0 0 10 5 5 0 0 0 0-10m0 22c-1.663.009-10-12.819-10-17C2 6.478 6.477 2 12 2s10 4.478 10 10c0 4.125-8.363 17.009-10 17m0-29C5.373 0 0 5.373 0 12c0 5.018 10.005 20.011 12 20 1.964.011 12-15.05 12-20 0-6.627-5.373-12-12-12" />
               </svg>
               <p class="location-name">Hotel Twins - Ehden Lebanon</p>
-              <a
-                class="locate-on-map-button"
-                href="https://maps.app.goo.gl/aR3TA1AFut7DJ33A9?g_st=iw"
-                >Locate on Map</a
-              >
+              <a class="locate-on-map-button" href="https://maps.app.goo.gl/aR3TA1AFut7DJ33A9?g_st=iw">Locate on Map</a>
             </div>
 
-            <div class="info-item time">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="#000"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 6v6M16.24 16.24 12 12"
-                />
+            <div class="card-divider stagger-child" style="--stagger: 4">
+              <svg viewBox="0 0 100 10" preserveAspectRatio="none">
+                <line x1="0" y1="5" x2="45" y2="5" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+                <rect x="47" y="2" width="6" height="6" transform="rotate(45 50 5)" fill="none" stroke="currentColor" stroke-width="0.5" />
+                <line x1="55" y1="5" x2="100" y2="5" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+              </svg>
+            </div>
+
+            <div class="info-item time stagger-child" style="--stagger: 5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="12" x2="12" y2="4" />
+                <line x1="12" y1="12" x2="7.67" y2="14.5" />
               </svg>
               <div class="time-lines">
                 <p class="time-text">Welcome Drink: 8:00 PM</p>
@@ -116,9 +130,15 @@
             </div>
           </div>
         </div>
-        <div class="wedding-info reveal" id="gifts">
-          <div class="title">Gifts</div>
-          <svg
+        </div>
+        <div class="wedding-info animate-section slide-right" id="gifts">
+          <svg class="card-bg-root" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path class="root-path" stroke-width="1.5" d="M200 300 Q150 250 120 200 T80 100 T20 0" />
+            <path class="root-leaf" stroke-width="1.0" d="M150 240 Q110 230 100 190 M105 160 Q70 140 60 100 M65 80 Q30 60 25 30" />
+            <path class="root-leaf" stroke-width="0.5" d="M125 210 Q90 190 85 160 M85 125 Q50 100 45 70 M45 45 Q20 30 15 10 M170 270 Q140 240 130 210 M130 180 Q105 150 95 120" />
+          </svg>
+          <div class="title stagger-child" style="--stagger: 1">Gifts</div>
+          <svg class="stagger-child" style="--stagger: 2"
             xmlns="http://www.w3.org/2000/svg"
             width="40px"
             height="40px"
@@ -130,13 +150,21 @@
               d="M19.5 7.75h-1.4c.4-.48.65-1.08.65-1.75 0-1.52-1.23-2.75-2.75-2.75-1.68 0-3.16.89-4 2.21a4.75 4.75 0 0 0-4-2.21C6.48 3.25 5.25 4.48 5.25 6c0 .67.25 1.27.65 1.75H4.5c-.69 0-1.25.56-1.25 1.25v2.5c0 .6.43 1.08 1 1.2v6.8c0 .69.56 1.25 1.25 1.25h13c.69 0 1.25-.56 1.25-1.25v-6.8c.57-.12 1-.6 1-1.2V9c0-.69-.56-1.25-1.25-1.25m-.25 3.5h-6.5v-2h6.5zM16 4.75a1.25 1.25 0 0 1 0 2.5h-3.16c.34-1.43 1.63-2.5 3.16-2.5m-8 0c1.53 0 2.82 1.07 3.16 2.5H8a1.25 1.25 0 0 1 0-2.5m-3.25 4.5h6.5v2h-6.5zm1 3.5h5.5v6.5h-5.5zm12.5 6.5h-5.5v-6.5h5.5z"
             />
           </svg>
-          <div id="whish-account">Whish Account: 20215289-03</div>
+          <div id="whish-account" class="stagger-child" style="--stagger: 3">Whish Account: 20215289-03</div>
         </div>
       </div>
-      <div class="reservation">
-        <h2 class="slide-title">Be Our Guest</h2>
-        <p class="reservation-deadline">Please reply before June 01, 2026</p>
+      <div class="reservation animate-section blur-scale">
+        <svg class="card-bg-root" viewBox="0 0 200 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path class="root-path" stroke-width="1.5" d="M100 300 Q100 270 100 250" />
+          <path class="root-path" stroke-width="1.5" d="M100 250 Q80 220 50 180 T20 80 T0 20" />
+          <path class="root-path" stroke-width="1.5" d="M100 250 Q120 220 150 180 T180 80 T200 20" />
+          <path class="root-leaf" stroke-width="1.0" d="M70 210 Q40 190 30 150 M130 210 Q160 190 170 150 M40 130 Q20 100 10 70 M160 130 Q180 100 190 70" />
+          <path class="root-leaf" stroke-width="0.5" d="M50 175 Q30 150 25 120 M150 175 Q170 150 175 120 M25 90 Q10 70 5 40 M175 90 Q190 70 195 40 M80 235 Q60 250 40 240 M120 235 Q140 250 160 240" />
+        </svg>
+        <h2 class="slide-title stagger-child" style="--stagger: 1">Be Our Guest</h2>
+        <p class="reservation-deadline stagger-child" style="--stagger: 2">Please reply before June 01, 2026</p>
         <form
+          class="stagger-child" style="--stagger: 3"
           method="POST"
           action=""
           id="reservation-form"
@@ -211,6 +239,9 @@
               <option value="None">None</option>
               <option value="1">1</option>
               <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
           </div>
           <div class="input" id="phone-number">
@@ -233,36 +264,19 @@
           </div>
           <button type="submit" id="rsvp-btn">RSVP</button>
         </form>
-      </div>
     </div>
     </div>
 
-    <section class="parallax parallax-2"></section>
-
-    <button
-      type="button"
-      id="music-toggle"
-      class="music-tone"
-      aria-label="Toggle music"
-    >
-      <svg
-        width="40"
-        height="40"
-        viewBox="0 0 28 28"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
+    <button type="button" id="music-toggle" aria-label="Toggle music">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
       </svg>
     </button>
+    <audio id="bg-music" loop playsinline preload="auto" src="coldplay.mp3"></audio>
 
-    <!-- <audio id="bg-music" preload="auto" loop playsinline src="./coldplay.mp3"></audio> -->
 
     <footer>
       <p>Marie Therese Dahdah &amp; Sleiman Makary</p> 

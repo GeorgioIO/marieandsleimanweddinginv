@@ -8,6 +8,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ==== Fonts === */
@@ -43,18 +45,8 @@ body {
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* ==== Animations ==== */
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
 
 body {
   font-family: var(--font-body);
@@ -111,7 +103,7 @@ p {
   padding: 20px 5px;
   max-width: 700px;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-  animation: fadeInUp 0.5s ease forwards;
+
 }
 
 .entry-slide h1,
@@ -135,66 +127,6 @@ footer {
   font-size: 10px;
 }
 
-/* Music toggle */
-.music-tone {
-  position: fixed;
-  right: var(--gutter);
-  bottom: var(--gutter);
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.75);
-  background: rgba(255, 255, 255, 0.85);
-  color: #000;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
-  transition:
-    transform 160ms ease,
-    background 160ms ease,
-    box-shadow 160ms ease;
-}
-
-.music-tone:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.music-tone:focus-visible {
-  outline: 2px solid rgba(0, 0, 0, 0.95);
-  outline-offset: 3px;
-}
-
-@keyframes music-shake {
-  0% {
-    transform: rotate(0deg) translateY(0);
-  }
-  25% {
-    transform: rotate(-7deg) translateY(-1px);
-  }
-  50% {
-    transform: rotate(0deg) translateY(0);
-  }
-  75% {
-    transform: rotate(7deg) translateY(-1px);
-  }
-  100% {
-    transform: rotate(0deg) translateY(0);
-  }
-}
-
-.music-tone.is-playing svg {
-  transform-origin: 50% 50%;
-  animation: music-shake 600ms ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .music-tone.is-playing svg {
-    animation: none;
-  }
-}
 
 .wedding-date-container {
   display: flex;
@@ -252,13 +184,29 @@ footer {
 }
 
 .quote-container {
-  margin-top: 30px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 .quote-container > .quote {
-  width: 100%;
+  position: relative;
+  font-family: var(--font-title);
+  font-size: clamp(1.25rem, 1.3vw, 1.5rem);
+  font-style: italic;
+  padding: 0 35px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.attributioner {
   font-family: var(--font-body);
+  font-size: 0.95rem;
+  opacity: 0.9;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .separator {
@@ -429,29 +377,6 @@ footer {
   text-align: center;
 }
 
-/* ======== Scroll reveal animation ======== */
-
-.wedding-info.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 650ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.wedding-info.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wedding-info.reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
 
 /* ======== Reservation (RSVP) ======== */
 
@@ -666,22 +591,266 @@ footer {
   outline-offset: 3px;
 }
 
+
+
+/* ======== Background Music Button ======== */
 #music-toggle {
   position: fixed;
-  left: 24px;
-  bottom: 24px;
-  z-index: 1001;
-  background: transparent;
-  border: none;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px 0 rgba(179, 156, 50, 0.13);
   cursor: pointer;
-  transition:
-    background 0.3s,
-    box-shadow 0.3s;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #444;
+  outline: none;
+}
+
+#music-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  color: #111;
+}
+
+#music-toggle:active {
+  transform: translateY(0) scale(0.95);
+}
+
+#music-toggle svg {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Paused state (Muted Icon) */
+#music-toggle .icon-pause {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+#music-toggle .icon-play {
+  opacity: 0;
+  transform: scale(0.5) rotate(-45deg);
+}
+
+/* Playing state (Musical Note) */
+#music-toggle.is-playing .icon-pause {
+  opacity: 0;
+  transform: scale(0.5) rotate(45deg);
+}
+
+#music-toggle.is-playing .icon-play {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+/* Gentle pulse animation when playing */
+@keyframes musicPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+#music-toggle.is-playing {
+  animation: musicPulse 2.5s infinite;
+}
+
+/* ======== New Scroll Entrance Animations ======== */
+.animate-section,
+.animate-section .stagger-child {
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-section {
+  transition-delay: 0ms;
+}
+
+.animate-section .stagger-child {
+  /* section starts at 0ms, children start staggering afterwards */
+  transition-delay: calc(150ms + (var(--stagger, 0) * 120ms));
+}
+
+.animate-section.is-visible,
+.animate-section.is-visible .stagger-child {
+  opacity: 1;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* 1. fade-scale */
+.animate-section.fade-scale { transform: scale(0.96); }
+.animate-section.fade-scale .stagger-child { transform: scale(0.98); }
+
+/* 2. slide-up */
+.animate-section.slide-up { transform: translateY(40px); }
+.animate-section.slide-up .stagger-child { transform: translateY(20px); }
+
+/* 3. slide-left */
+.animate-section.slide-left { transform: translateX(-50px); }
+.animate-section.slide-left .stagger-child { transform: translateX(-20px); }
+
+/* 4. slide-right */
+.animate-section.slide-right { transform: translateX(50px); }
+.animate-section.slide-right .stagger-child { transform: translateX(20px); }
+
+/* 5. blur-scale */
+.animate-section.blur-scale { transform: scale(0.96); filter: blur(6px); }
+.animate-section.blur-scale .stagger-child { filter: blur(3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-section,
+  .animate-section .stagger-child {
+    transition: opacity 0.4s ease !important;
+    transition-delay: 0s !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ======== Loading Screen ======== */
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-heart {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  animation: loaderPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.olive-branches {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.branch-path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawOliveBranch 1.8s ease forwards;
+}
+
+.leaf-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawOliveBranch 1.2s ease forwards 0.6s;
+}
+
+@keyframes drawOliveBranch {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-heart { animation: none !important; }
+  .branch-path, .leaf-path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+
+/* ======== Card Redesign ======== */
+.card-bg-root {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.12;
+  pointer-events: none;
+  color: var(--ink);
+}
+
+.root-path { stroke-dasharray: 400; stroke-dashoffset: 400; }
+.root-leaf { stroke-dasharray: 100; stroke-dashoffset: 100; }
+
+.animate-section.is-visible .root-path {
+  animation: drawCardRoot 2s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.5s;
+}
+.animate-section.is-visible .root-leaf {
+  animation: drawCardRoot 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards 1s;
+}
+
+@keyframes drawCardRoot { to { stroke-dashoffset: 0; } }
+
+.ceremony-subtitle {
+  font-family: var(--font-title);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(0,0,0,0.6);
+  text-align: center;
+  margin-bottom: -15px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.wedding-info .title {
+  letter-spacing: 0.15em;
+}
+
+.card-divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 10px;
+  color: var(--ink);
+  opacity: 0.8;
+}
+.card-divider svg { width: 140px; height: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .root-path, .root-leaf { animation: none !important; stroke-dashoffset: 0 !important; }
 }
