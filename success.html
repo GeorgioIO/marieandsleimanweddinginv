@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmed - Marie Therese & Sleiman</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        :root {
+            --success-bg: #ffffff;
+            --olive-opacity: 0.15;
+        }
+
+        body {
+            background-color: var(--success-bg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: var(--font-body);
+            color: var(--ink);
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* --- SVGs --- */
+        .top-branch {
+            width: 120px;
+            height: auto;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .main-heart {
+            width: 80px;
+            height: 80px;
+            margin: 10px 0;
+        }
+
+        .heart-path {
+            fill: none;
+            stroke: var(--ink);
+            stroke-width: 1;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawStroke 0.8s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-family: var(--font-title);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 0;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: 0.6s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .subtitle {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            margin: 0;
+            opacity: 0;
+            animation: fadeIn 0.4s ease forwards;
+            animation-delay: 0.8s;
+            line-height: 1.4;
+        }
+
+        /* --- Divider --- */
+        .divider {
+            width: 100px;
+            height: 10px;
+            opacity: 0;
+            animation: fadeIn 0.4s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        .divider line, .divider rect {
+            stroke: currentColor;
+            stroke-width: 0.5;
+        }
+
+        /* --- Button --- */
+        .back-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 30px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            color: #fff;
+            background: #000;
+            border-radius: 999px;
+            text-decoration: none;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+            animation-delay: 1s;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            background: #222;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- Corner Vines --- */
+        .vine {
+            position: fixed;
+            bottom: -50px;
+            width: 300px;
+            height: auto;
+            pointer-events: none;
+            opacity: var(--olive-opacity);
+            z-index: 1;
+        }
+
+        .vine-left {
+            left: -30px;
+            transform: rotate(-5deg);
+        }
+
+        .vine-right {
+            right: -30px;
+            transform: scaleX(-1) rotate(-5deg);
+        }
+
+        .root-path, .root-leaf {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawStroke 1.5s ease forwards;
+        }
+
+        /* --- Animations --- */
+        @keyframes drawStroke {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .top-branch, .heart-path, h1, .subtitle, .divider, .back-btn, .root-path, .root-leaf {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+                stroke-dashoffset: 0 !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .vine {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Corner Vines -->
+    <svg class="vine vine-left" viewBox="0 0 200 300" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path class="root-path" d="M20 350 Q40 280 60 220 T80 120 T100 20" stroke-width="1.5" />
+        <path class="root-leaf" d="M55 240 Q30 230 20 190 M60 160 Q35 140 25 100" stroke-width="1.0" />
+        <path class="root-leaf" d="M40 210 Q20 190 15 160 M75 125 Q40 100 35 70" stroke-width="0.5" />
+    </svg>
+
+    <svg class="vine vine-right" viewBox="0 0 200 300" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path class="root-path" d="M20 350 Q40 280 60 220 T80 120 T100 20" stroke-width="1.5" />
+        <path class="root-leaf" d="M55 240 Q30 230 20 190 M60 160 Q35 140 25 100" stroke-width="1.0" />
+        <path class="root-leaf" d="M40 210 Q20 190 15 160 M75 125 Q40 100 35 70" stroke-width="0.5" />
+    </svg>
+
+    <main class="container">
+        <!-- Top Branch -->
+        <svg class="top-branch" viewBox="0 0 200 100" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M100 80 C80 75 60 85 40 60 C30 45 20 55 10 45" />
+            <path d="M40 60 C45 50 55 55 60 65 M60 90 C50 80 40 85 35 95 M80 70 C75 60 65 65 60 75 M10 45 C5 35 15 30 25 40" />
+            <path d="M100 80 C120 75 140 85 160 60 C170 45 180 55 190 45" />
+            <path d="M160 60 C155 50 145 55 140 65 M140 90 C150 80 160 85 165 95 M120 70 C125 60 135 65 140 75 M190 45 C195 35 185 30 175 40" />
+        </svg>
+
+        <!-- Animated Heart -->
+        <svg class="main-heart" viewBox="0 0 24 24">
+            <path class="heart-path" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+
+        <h1>Your seat is saved</h1>
+        
+        <p class="subtitle">Thank you for confirming. We can't wait to celebrate with you!</p>
+
+        <!-- Divider -->
+        <svg class="divider" viewBox="0 0 100 10" preserveAspectRatio="none">
+            <line x1="0" y1="5" x2="45" y2="5" opacity="0.3" />
+            <rect x="47" y="2" width="6" height="6" transform="rotate(45 50 5)" fill="none" />
+            <line x1="55" y1="5" x2="100" y2="5" opacity="0.3" />
+        </svg>
+
+        <a href="index.html" class="back-btn">Back to Invitation</a>
+    </main>
+</body>
+</html>
